@@ -64,6 +64,17 @@
     
         // Get form data
         var formData = new FormData(this);
+
+        // Get the selected option from the "Plan" dropdown
+        var planDropdown = document.getElementById('plan');
+        var selectedPlan = planDropdown.options[planDropdown.selectedIndex].value;
+
+        // Set the value based on the selected plan
+        if (selectedPlan === 'Eco') {
+          formData.set('plan', '49'); // Set the value to '49' for 'Eco' plan
+        } else if (selectedPlan === 'Standard') {
+          formData.set('plan', '129'); // Set the value to '129' for 'Standard' plan
+        }
     
         // Create an AJAX request to submit form data to Google Sheets
         var xhr = new XMLHttpRequest();
